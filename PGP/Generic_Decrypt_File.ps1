@@ -11,9 +11,9 @@ $archivefolder = '' #only required if above is set to '1'
 
 if([string]::IsNullOrEmpty($passphrase))
     {
-        gpg --batch --yes --pinentry-mode=loopback --output $output --decrypt $file
+        gpg --batch --yes --pinentry-mode=loopback --ignore-mdc-error --output $output --decrypt $file
     }else {
-        gpg --batch --yes --pinentry-mode=loopback --passphrase $passphrase --output $output  --decrypt $file
+        gpg --batch --yes --pinentry-mode=loopback --ignore-mdc-error --passphrase $passphrase --output $output  --decrypt $file
     }
 
 ## archive encrypted file?
